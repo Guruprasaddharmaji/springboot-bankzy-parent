@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>4.0.1</version>
-        <relativePath /> <!-- lookup parent from repository -->
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>com.bankzy</groupId>
@@ -15,21 +16,21 @@
     <description>springboot-bankzy-parent</description>
     <packaging>pom</packaging>
 
-    <url />
+    <url/>
     <licenses>
-        <license />
+        <license/>
     </licenses>
 
     <developers>
-        <developer />
+        <developer/>
     </developers>
 
-<!--    <scm>-->
-<!--        <connection/>-->
-<!--        <developerConnection/>-->
-<!--        <tag/>-->
-<!--        <url/>-->
-<!--    </scm>-->
+    <!--    <scm>-->
+    <!--        <connection/>-->
+    <!--        <developerConnection/>-->
+    <!--        <tag/>-->
+    <!--        <url/>-->
+    <!--    </scm>-->
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -255,7 +256,7 @@
                         </goals>
                         <configuration>
                             <rules>
-                                <banDuplicatePomDependencyVersions />
+                                <banDuplicatePomDependencyVersions/>
                                 <requireJavaVersion>
                                     <version>[25,)</version>
                                 </requireJavaVersion>
@@ -283,21 +284,22 @@
     </build>
 
     <!--    <distributionManagement>-->
-            <!--        &lt;!&ndash;        <snapshotRepository>&ndash;&gt;-->
-            <!--        &lt;!&ndash;            <id>guruprasad-dharmaji-bankzy-snapshot</id>&ndash;&gt;-->
-            <!--        &lt;!&ndash;            <url>https://packages.buildkite.com/guruprasad-dharmaji/bankzy-snapshot/maven2/</url>&ndash;&gt;-->
-            <!--    </snapshotRepository>&ndash;&gt;-->
-            <!--    <repository>-->
-            <!--        <id>guruprasad-dharmaji-bankzy-release</id>-->
-            <!--        <url>https://packages.buildkite.com/guruprasad-dharmaji/bankzy-release/maven2//</url>-->
-            <!--    </repository>-->
+    <!--        &lt;!&ndash;        <snapshotRepository>&ndash;&gt;-->
+    <!--        &lt;!&ndash;            <id>guruprasad-dharmaji-bankzy-snapshot</id>&ndash;&gt;-->
+    <!--        &lt;!&ndash;            <url>https://packages.buildkite.com/guruprasad-dharmaji/bankzy-snapshot/maven2/</url>&ndash;&gt;-->
+    <!--    </snapshotRepository>&ndash;&gt;-->
+    <!--    <repository>-->
+    <!--        <id>guruprasad-dharmaji-bankzy-release</id>-->
+    <!--        <url>https://packages.buildkite.com/guruprasad-dharmaji/bankzy-release/maven2//</url>-->
+    <!--    </repository>-->
     <!--        </distributionManagement>-->
 
     <scm>
-        <developerConnection>scm:git:https://github.com/Guruprasaddharmaji/springboot-bankzy-parent.git</developerConnection>
+        <developerConnection>scm:git:https://github.com/Guruprasaddharmaji/springboot-bankzy-parent.git
+        </developerConnection>
         <url>https://github.com/Guruprasaddharmaji/springboot-bankzy-parent</url>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
 
     <profiles>
         <profile>
@@ -311,99 +313,101 @@
                     <id>nexus-bankzy-release</id>
                     <url>http://localhost:8081/repository/bankzy-maven-release/</url>
                 </repository>
-            <profile>
-                <id>packagecloud</id>
-                <repositories>
-                    <repository>
-                        <id>guruprasad-dharmaji-bankzy-release</id>
-                        <url>https://packages.buildkite.com/guruprasad-dharmaji/bankzy-release/maven2/</url>
-                    </repository>
-                    <repository>
-                        <id>guruprasad-dharmaji-bankzy-snapshot</id>
-                        <url>https://packages.buildkite.com/guruprasad-dharmaji/bankzy-snapshot/maven2/</url>
-                    </repository>
-                </repositories>
-            </profile>
+            </distributionManagement
         </profile>
-    </profiles>
-<!--    <distributionManagement>-->
-<!--        <snapshotRepository>-->
-<!--            <id>nexus-bankzy-snapshot</id>-->
-<!--            <url>http://localhost:8081/repository/bankzy-maven-snapshot/</url>-->
-<!--        </snapshotRepository>-->
-<!--        <repository>-->
-<!--            <id>nexus-bankzy-release</id>-->
-<!--            <url>http://localhost:8081/repository/bankzy-maven-release/</url>-->
-<!--        </repository>-->
-<!--    </distributionManagement>-->
+        <profile>
+            <id>packagecloud</id>
+            <distributionManagement>
+                <repository>
+                    <id>guruprasad-dharmaji-bankzy-release</id>
+                    <url>https://packages.buildkite.com/guruprasad-dharmaji/bankzy-release/maven2/</url>
+                </repository>
+                <snapshotRepository>
+                    <id>guruprasad-dharmaji-bankzy-snapshot</id>
+                    <url>https://packages.buildkite.com/guruprasad-dharmaji/bankzy-snapshot/maven2/</url>
+                </snapshotRepository>
+            </distributionManagement>
+        </profile>
+    </profile>
+</profiles>
+        <!--    <distributionManagement>-->
+        <!--        <snapshotRepository>-->
+        <!--            <id>nexus-bankzy-snapshot</id>-->
+        <!--            <url>http://localhost:8081/repository/bankzy-maven-snapshot/</url>-->
+        <!--        </snapshotRepository>-->
+        <!--        <repository>-->
+        <!--            <id>nexus-bankzy-release</id>-->
+        <!--            <url>http://localhost:8081/repository/bankzy-maven-release/</url>-->
+        <!--        </repository>-->
+        <!--    </distributionManagement>-->
 
-    <reporting>
+<reporting>
+<plugins>
+    <!-- Surefire + Failsafe reports -->
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-report-plugin</artifactId>
+        <version>3.5.4</version>
+        <configuration>
+            <reportsDirectories>
+                <reportsDirectory>target/surefire-reports</reportsDirectory>
+                <reportsDirectory>target/failsafe-reports</reportsDirectory>
+            </reportsDirectories>
+        </configuration>
+        <reportSets>
+            <reportSet>
+                <id>unit-tests</id>
+                <reports>
+                    <report>report</report>
+                </reports>
+            </reportSet>
+            <reportSet>
+                <id>integration-tests</id>
+                <reports>
+                    <report>failsafe-report-only</report>
+                </reports>
+            </reportSet>
+        </reportSets>
+    </plugin>
+
+    <!-- SpotBugs -->
+    <plugin>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-maven-plugin</artifactId>
+        <version>${spotbugs.version}</version>
+    </plugin>
+
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>3.0.0</version>
+    </plugin>
+</plugins>
+</reporting>
+<profiles>
+<profile>
+    <id>release</id>
+    <build>
         <plugins>
-            <!-- Surefire + Failsafe reports -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-report-plugin</artifactId>
-                <version>3.5.4</version>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
-                    <reportsDirectories>
-                        <reportsDirectory>target/surefire-reports</reportsDirectory>
-                        <reportsDirectory>target/failsafe-reports</reportsDirectory>
-                    </reportsDirectories>
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                    <updatePomFile>true</updatePomFile>
                 </configuration>
-                <reportSets>
-                    <reportSet>
-                        <id>unit-tests</id>
-                        <reports>
-                            <report>report</report>
-                        </reports>
-                    </reportSet>
-                    <reportSet>
-                        <id>integration-tests</id>
-                        <reports>
-                            <report>failsafe-report-only</report>
-                        </reports>
-                    </reportSet>
-                </reportSets>
-            </plugin>
-
-            <!-- SpotBugs -->
-            <plugin>
-                <groupId>com.github.spotbugs</groupId>
-                <artifactId>spotbugs-maven-plugin</artifactId>
-                <version>${spotbugs.version}</version>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>3.0.0</version>
             </plugin>
         </plugins>
-    </reporting>
-    <profiles>
-        <profile>
-            <id>release</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>flatten-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>flatten</id>
-                                <phase>process-resources</phase>
-                                <goals>
-                                    <goal>flatten</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <flattenMode>resolveCiFriendliesOnly</flattenMode>
-                            <updatePomFile>true</updatePomFile>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-</project>
+    </build>
+</profile>
+</profiles>
+        </project>
