@@ -10,7 +10,7 @@
 
     <groupId>com.bankzy</groupId>
     <artifactId>springboot-bankzy-parent</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5-SNAPSHOT</version>
     <name>springboot-bankzy-parent</name>
     <description>springboot-bankzy-parent</description>
     <packaging>pom</packaging>
@@ -297,7 +297,7 @@
         <developerConnection>scm:git:https://github.com/Guruprasaddharmaji/springboot-bankzy-parent.git
         </developerConnection>
         <url>https://github.com/Guruprasaddharmaji/springboot-bankzy-parent</url>
-        <tag>springboot-bankzy-parent-1.0.4</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <profiles>
