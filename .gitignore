@@ -1,0 +1,133 @@
+############################################
+# IntelliJ IDEA
+############################################
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+.idea/shelf/
+.idea/httpRequests/
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/compiler.xml
+.idea/jarRepositories.xml
+
+############################################
+# Build outputs
+############################################
+target/
+build/
+out/
+classes/
+bin/
+
+############################################
+# Maven
+############################################
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvnd/
+.flattened-pom.xml
+
+############################################
+# Gradle
+############################################
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+gradle-app.setting
+
+############################################
+# Spring Boot
+############################################
+logs/
+*.log
+*.log.*
+tmp/
+*.tmp
+*.swp
+*.out
+hs_err_pid*
+replay_pid*
+*/hs_err_pid*.log
+
+# DevTools hot reload temp files
+.spring-boot-devtools.properties
+spring-boot-devtools.xml
+
+############################################
+# Packaging outputs
+############################################
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+
+############################################
+# Docker
+############################################
+docker/
+.docker/
+docker-data/
+docker/logs/
+*.pid
+docker-compose.override.yml
+docker-compose.*.yml
+
+# Build caches
+**/docker-cache/
+**/layer-cache/
+**/build-cache/
+
+# Container env overrides
+.env
+.env.*.local
+.env.docker
+.env.test
+.env.production
+
+############################################
+# Kubernetes
+############################################
+k8s/generated/
+manifests/generated/
+*.secret.yaml         # recommended: store encrypted only
+*.configmap.yaml      # if dynamically generated
+
+# Helm
+helm-output/
+charts/**/charts/
+charts/**/tmp/
+*.tgz
+
+# Kustomize
+kustomize/.cache/
+*.patch.yaml
+
+# Skaffold/Tilt support
+.tiltbuild/
+.skaffold/
+.skaffold.log
+
+############################################
+# System files
+############################################
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*~
+.nfs*
