@@ -313,7 +313,7 @@
                     <id>nexus-bankzy-release</id>
                     <url>http://localhost:8081/repository/bankzy-maven-release/</url>
                 </repository>
-            </distributionManagement
+            </distributionManagement>
         </profile>
         <profile>
             <id>packagecloud</id>
@@ -328,86 +328,110 @@
                 </snapshotRepository>
             </distributionManagement>
         </profile>
-    </profile>
-</profiles>
-        <!--    <distributionManagement>-->
-        <!--        <snapshotRepository>-->
-        <!--            <id>nexus-bankzy-snapshot</id>-->
-        <!--            <url>http://localhost:8081/repository/bankzy-maven-snapshot/</url>-->
-        <!--        </snapshotRepository>-->
-        <!--        <repository>-->
-        <!--            <id>nexus-bankzy-release</id>-->
-        <!--            <url>http://localhost:8081/repository/bankzy-maven-release/</url>-->
-        <!--        </repository>-->
-        <!--    </distributionManagement>-->
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>flatten-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>flatten</id>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>flatten</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                            <updatePomFile>true</updatePomFile>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
-<reporting>
-<plugins>
-    <!-- Surefire + Failsafe reports -->
-    <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-report-plugin</artifactId>
-        <version>3.5.4</version>
-        <configuration>
-            <reportsDirectories>
-                <reportsDirectory>target/surefire-reports</reportsDirectory>
-                <reportsDirectory>target/failsafe-reports</reportsDirectory>
-            </reportsDirectories>
-        </configuration>
-        <reportSets>
-            <reportSet>
-                <id>unit-tests</id>
-                <reports>
-                    <report>report</report>
-                </reports>
-            </reportSet>
-            <reportSet>
-                <id>integration-tests</id>
-                <reports>
-                    <report>failsafe-report-only</report>
-                </reports>
-            </reportSet>
-        </reportSets>
-    </plugin>
+    <!--    <distributionManagement>-->
+    <!--        <snapshotRepository>-->
+    <!--            <id>nexus-bankzy-snapshot</id>-->
+    <!--            <url>http://localhost:8081/repository/bankzy-maven-snapshot/</url>-->
+    <!--        </snapshotRepository>-->
+    <!--        <repository>-->
+    <!--            <id>nexus-bankzy-release</id>-->
+    <!--            <url>http://localhost:8081/repository/bankzy-maven-release/</url>-->
+    <!--        </repository>-->
+    <!--    </distributionManagement>-->
 
-    <!-- SpotBugs -->
-    <plugin>
-        <groupId>com.github.spotbugs</groupId>
-        <artifactId>spotbugs-maven-plugin</artifactId>
-        <version>${spotbugs.version}</version>
-    </plugin>
-
-    <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-project-info-reports-plugin</artifactId>
-        <version>3.0.0</version>
-    </plugin>
-</plugins>
-</reporting>
-<profiles>
-<profile>
-    <id>release</id>
-    <build>
+    <reporting>
         <plugins>
+            <!-- Surefire + Failsafe reports -->
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>flatten-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>flatten</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>flatten</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>3.5.4</version>
                 <configuration>
-                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
-                    <updatePomFile>true</updatePomFile>
+                    <reportsDirectories>
+                        <reportsDirectory>target/surefire-reports</reportsDirectory>
+                        <reportsDirectory>target/failsafe-reports</reportsDirectory>
+                    </reportsDirectories>
                 </configuration>
+                <reportSets>
+                    <reportSet>
+                        <id>unit-tests</id>
+                        <reports>
+                            <report>report</report>
+                        </reports>
+                    </reportSet>
+                    <reportSet>
+                        <id>integration-tests</id>
+                        <reports>
+                            <report>failsafe-report-only</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+
+            <!-- SpotBugs -->
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>${spotbugs.version}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>3.0.0</version>
             </plugin>
         </plugins>
-    </build>
-</profile>
-</profiles>
-        </project>
+    </reporting>
+<!--    <profiles>-->
+<!--        <profile>-->
+<!--            <id>release</id>-->
+<!--            <build>-->
+<!--                <plugins>-->
+<!--                    <plugin>-->
+<!--                        <groupId>org.codehaus.mojo</groupId>-->
+<!--                        <artifactId>flatten-maven-plugin</artifactId>-->
+<!--                        <executions>-->
+<!--                            <execution>-->
+<!--                                <id>flatten</id>-->
+<!--                                <phase>process-resources</phase>-->
+<!--                                <goals>-->
+<!--                                    <goal>flatten</goal>-->
+<!--                                </goals>-->
+<!--                            </execution>-->
+<!--                        </executions>-->
+<!--                        <configuration>-->
+<!--                            <flattenMode>resolveCiFriendliesOnly</flattenMode>-->
+<!--                            <updatePomFile>true</updatePomFile>-->
+<!--                        </configuration>-->
+<!--                    </plugin>-->
+<!--                </plugins>-->
+<!--            </build>-->
+<!--        </profile>-->
+<!--    </profiles>-->
+</project>
