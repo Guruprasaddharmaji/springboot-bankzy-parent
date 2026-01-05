@@ -299,16 +299,43 @@
       <tag>HEAD</tag>
   </scm>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>nexus-bankzy-snapshot</id>
-            <url>http://localhost:8081/repository/bankzy-maven-snapshot/</url>
-        </snapshotRepository>
-        <repository>
-            <id>nexus-bankzy-release</id>
-            <url>http://localhost:8081/repository/bankzy-maven-release/</url>
-        </repository>
-    </distributionManagement>
+    <profiles>
+        <profile>
+            <id>nexus</id>
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>nexus-bankzy-snapshot</id>
+                    <url>http://localhost:8081/repository/bankzy-maven-snapshot/</url>
+                </snapshotRepository>
+                <repository>
+                    <id>nexus-bankzy-release</id>
+                    <url>http://localhost:8081/repository/bankzy-maven-release/</url>
+                </repository>
+            <profile>
+                <id>packagecloud</id>
+                <repositories>
+                    <repository>
+                        <id>guruprasad-dharmaji-bankzy-release</id>
+                        <url>https://packages.buildkite.com/guruprasad-dharmaji/bankzy-release/maven2/</url>
+                    </repository>
+                    <repository>
+                        <id>guruprasad-dharmaji-bankzy-snapshot</id>
+                        <url>https://packages.buildkite.com/guruprasad-dharmaji/bankzy-snapshot/maven2/</url>
+                    </repository>
+                </repositories>
+            </profile>
+        </profile>
+    </profiles>
+<!--    <distributionManagement>-->
+<!--        <snapshotRepository>-->
+<!--            <id>nexus-bankzy-snapshot</id>-->
+<!--            <url>http://localhost:8081/repository/bankzy-maven-snapshot/</url>-->
+<!--        </snapshotRepository>-->
+<!--        <repository>-->
+<!--            <id>nexus-bankzy-release</id>-->
+<!--            <url>http://localhost:8081/repository/bankzy-maven-release/</url>-->
+<!--        </repository>-->
+<!--    </distributionManagement>-->
 
     <reporting>
         <plugins>
