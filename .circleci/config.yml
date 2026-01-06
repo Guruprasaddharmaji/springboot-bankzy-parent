@@ -5,7 +5,7 @@ jobs:
       - image: cimg/openjdk:25.0  # Convenience image with Java
     steps:
       - checkout
-      - run: mvn clean test  # Or your build/test command
+      - run: ./mvnw clean test  # Or your build/test command
 workflows:
   main:
     jobs:
