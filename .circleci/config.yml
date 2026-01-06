@@ -22,7 +22,7 @@ jobs:
           paths:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
-      - run: ./mvnw clean deploy -Ppackagecloud  # Or your build/test command
+      - run: ./mvnw clean deploy -Ppackagecloud -s .circleci/settings.xml  # Or your build/test command
 workflows:
   main:
     jobs:
