@@ -29,5 +29,12 @@
 
     </servers>
 
+    <mirrors>
+        <mirror>
+            <id>nexus</id>
+            <mirrorOf>*</mirrorOf>
+            <url>http://localhost:8081/repository/bankzy-nexus-group/</url>
+        </mirror>
+    </mirrors>
 
 </settings>
