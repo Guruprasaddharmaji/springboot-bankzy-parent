@@ -10,7 +10,7 @@
                 <httpHeaders>
                     <property>
                         <name>Authorization</name>
-                        <value>${env.PCLOUD_RELASE}</value>
+                        <value>${env.PCLOUD_RELEASE}</value>
                     </property>
                 </httpHeaders>
             </configuration>
@@ -26,15 +26,6 @@
                 </httpHeaders>
             </configuration>
         </server>
-
     </servers>
-
-    <mirrors>
-        <mirror>
-            <id>nexus</id>
-            <mirrorOf>*</mirrorOf>
-            <url>http://localhost:8081/repository/bankzy-nexus-group/</url>
-        </mirror>
-    </mirrors>
 
 </settings>

@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /Users/guruprasaddharmaji/bankzy/repos/springboot-bankzy-parent remote -v)"
+    ]
+  }
+}
