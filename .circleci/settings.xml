@@ -28,4 +28,36 @@
         </server>
     </servers>
 
+    <profiles>
+        <profile>
+            <id>packagecloud</id>
+            <repositories>
+                <repository>
+                    <id>guruprasad-dharmaji-bankzy-release</id>
+                    <url>https://packages.buildkite.com/guruprasad-dharmaji/bankzy-release/maven2/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+                <repository>
+                    <id>guruprasad-dharmaji-bankzy-snapshot</id>
+                    <url>https://packages.buildkite.com/guruprasad-dharmaji/bankzy-snapshot/maven2/</url>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+
+    <activeProfiles>
+        <activeProfile>packagecloud</activeProfile>
+    </activeProfiles>
+
 </settings>
