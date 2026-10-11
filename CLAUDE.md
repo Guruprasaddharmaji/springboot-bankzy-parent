@@ -39,7 +39,7 @@ Uses CI-friendly versioning via the `${revision}` property (default: `1.0.0-SNAP
 
 ### Dependency Management
 - Imports `com.bankzy:bankzy-dependencies` BOM for shared dependency versions across the ecosystem
-- Manages MapStruct and JUnit Jupiter versions directly
+- MapStruct versions come from the BOM; Spring Boot and JUnit versions come from `spring-boot-starter-parent`
 
 ### Compiler Setup
 Annotation processors are configured in order: **MapStruct** then **Lombok**. MapStruct uses `spring` as its default component model.
