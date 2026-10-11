@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: cimg/openjdk:25.0  # Convenience image with Java
+      - image: eclipse-temurin:27-jdk  # No cimg/openjdk 27 image yet
     working_directory: ~/repo
 
     environment:
@@ -22,7 +22,17 @@ jobs:
           paths:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
-      - run: ./mvnw clean deploy -Ppackagecloud -s .circleci/settings.xml  # Or your build/test command
+      # Only main publishes to PackageCloud; other branches just build and test
+      - when:
+          condition:
+            equal: [ main, << pipeline.git.branch >> ]
+          steps:
+            - run: ./mvnw clean deploy -Ppackagecloud -s .circleci/settings.xml
+      - unless:
+          condition:
+            equal: [ main, << pipeline.git.branch >> ]
+          steps:
+            - run: ./mvnw clean verify -s .circleci/settings.xml
 workflows:
   main:
     jobs:
