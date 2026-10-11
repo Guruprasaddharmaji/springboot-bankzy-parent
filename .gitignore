@@ -131,3 +131,7 @@ ehthumbs.db
 Desktop.ini
 *~
 .nfs*
+
+# Local tooling
+.java-version
+.agents/

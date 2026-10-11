@@ -8,7 +8,7 @@ This is a **Maven parent POM** — it contains no application source code. It pr
 
 ## Prerequisites
 
-- **Java 25+**
+- **Java 27+**
 - **Maven 3.9.12+** (provided via Maven Wrapper)
 
 ## Build Commands
@@ -57,7 +57,7 @@ Annotation processors are configured in order: **MapStruct** then **Lombok**. Ma
 | `nexus` | Deploy to local Nexus at `localhost:8081` | `-Pnexus` |
 
 ### CI/CD
-CircleCI pipeline (`.circleci/config.yml`) builds on the `main` branch only, using `cimg/openjdk:25.0`. Auth tokens for PackageCloud are passed via `PCLOUD_RELEASE` and `PCLOUD_SNAPSHOT` environment variables.
+CircleCI pipeline (`.circleci/config.yml`) builds on the `main` branch only, using `eclipse-temurin:27-jdk`. Auth tokens for PackageCloud are passed via `PCLOUD_RELEASE` and `PCLOUD_SNAPSHOT` environment variables.
 
 ## Key Properties
 
@@ -66,11 +66,11 @@ CircleCI pipeline (`.circleci/config.yml`) builds on the `main` branch only, usi
 | `revision` | `1.0.0-SNAPSHOT` | CI-friendly project version |
 | `skip.unit.tests` | `false` | Skip unit tests |
 | `skip.integration.tests` | `false` | Skip integration tests |
-| `java.version` | `25` | Java compiler target |
+| `java.version` | `27` | Java compiler target |
 
 ## Editing This POM
 
 When modifying plugin versions or adding dependencies:
 - Put version numbers in `<properties>` and reference them — don't hardcode versions in `<dependencyManagement>` or `<pluginManagement>`.
 - New plugins go in `<pluginManagement>` for configuration, then must be activated in the `<plugins>` section below it.
-- The enforcer plugin requires no duplicate dependency versions and minimum Java 25 / Maven 3.9.12.
+- The enforcer plugin requires no duplicate dependency versions and minimum Java 27 / Maven 3.9.12.

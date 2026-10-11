@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: cimg/openjdk:25.0  # Convenience image with Java
+      - image: eclipse-temurin:27-jdk  # No cimg/openjdk 27 image yet
     working_directory: ~/repo
 
     environment:
