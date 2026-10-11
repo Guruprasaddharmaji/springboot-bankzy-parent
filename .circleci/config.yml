@@ -39,6 +39,4 @@ workflows:
       - build:
           filters:
             branches:
-              only:
-                - main
-                - upgrade-java-27  # TODO: remove before merging
+              only: main
