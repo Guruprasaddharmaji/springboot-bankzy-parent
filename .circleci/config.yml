@@ -22,11 +22,23 @@ jobs:
           paths:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
-      - run: ./mvnw clean deploy -Ppackagecloud -s .circleci/settings.xml  # Or your build/test command
+      # Only main publishes to PackageCloud; other branches just build and test
+      - when:
+          condition:
+            equal: [ main, << pipeline.git.branch >> ]
+          steps:
+            - run: ./mvnw clean deploy -Ppackagecloud -s .circleci/settings.xml
+      - unless:
+          condition:
+            equal: [ main, << pipeline.git.branch >> ]
+          steps:
+            - run: ./mvnw clean verify -s .circleci/settings.xml
 workflows:
   main:
     jobs:
       - build:
           filters:
             branches:
-              only: main
+              only:
+                - main
+                - upgrade-java-27  # TODO: remove before merging
