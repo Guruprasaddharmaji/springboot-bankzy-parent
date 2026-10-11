@@ -22,9 +22,13 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
+        <!-- Overrides Spring Boot's 1.18.46, which doesn't support JDK 27 -->
+        <lombok.version>1.18.48</lombok.version>
+        <!-- 0.8.15 is the first release that reads Java 27 class files -->
+        <jacoco.version>0.8.15</jacoco.version>
         <junit.jupiter.version>5.12.0</junit.jupiter.version>
-        <spotbugs.version>4.9.8.2</spotbugs.version>
-        <spotbugs.core.version>4.9.8</spotbugs.core.version>
+        <spotbugs.version>4.10.4.1</spotbugs.version>
+        <spotbugs.core.version>4.10.4</spotbugs.core.version>
         <revision>1.0.4-SNAPSHOT</revision>
         <skip.unit.tests>false</skip.unit.tests>
         <skip.integration.tests>false</skip.integration.tests>
@@ -161,7 +165,7 @@
                 <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>0.8.14</version>
+                    <version>${jacoco.version}</version>
                     <executions>
                         <!-- Unit tests -->
                         <execution>
