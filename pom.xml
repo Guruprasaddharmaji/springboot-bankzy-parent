@@ -21,12 +21,10 @@
         <java.version>27</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <mapstruct.version>1.5.5.Final</mapstruct.version>
         <!-- Overrides Spring Boot's 1.18.46, which doesn't support JDK 27 -->
         <lombok.version>1.18.48</lombok.version>
         <!-- 0.8.15 is the first release that reads Java 27 class files -->
         <jacoco.version>0.8.15</jacoco.version>
-        <junit.jupiter.version>5.12.0</junit.jupiter.version>
         <spotbugs.version>4.10.4.1</spotbugs.version>
         <spotbugs.core.version>4.10.4</spotbugs.core.version>
         <revision>1.0.4-SNAPSHOT</revision>
@@ -55,20 +53,6 @@
                 <version>1.0.1-SNAPSHOT</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-
-            <!-- Bankzy standard versions -->
-            <dependency>
-                <groupId>org.mapstruct</groupId>
-                <artifactId>mapstruct</artifactId>
-                <version>${mapstruct.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter</artifactId>
-                <version>${junit.jupiter.version}</version>
-                <scope>test</scope>
             </dependency>
 
         </dependencies>
@@ -102,11 +86,12 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.14.0</version>
                     <configuration>
+                        <!-- Versions without an explicit <version> come from dependencyManagement (bankzy BOM) -->
+                        <annotationProcessorPathsUseDepMgmt>true</annotationProcessorPathsUseDepMgmt>
                         <annotationProcessorPaths>
                             <path>
                                 <groupId>org.mapstruct</groupId>
                                 <artifactId>mapstruct-processor</artifactId>
-                                <version>${mapstruct.version}</version>
                             </path>
                             <path>
                                 <groupId>org.projectlombok</groupId>
