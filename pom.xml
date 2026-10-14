@@ -27,6 +27,7 @@
         <jacoco.version>0.8.15</jacoco.version>
         <spotbugs.version>4.10.4.1</spotbugs.version>
         <spotbugs.core.version>4.10.4</spotbugs.core.version>
+        <bankzy-dependencies.version>1.0.1-SNAPSHOT</bankzy-dependencies.version>
         <revision>1.0.4-SNAPSHOT</revision>
         <skip.unit.tests>false</skip.unit.tests>
         <skip.integration.tests>false</skip.integration.tests>
@@ -50,7 +51,7 @@
             <dependency>
                 <groupId>com.bankzy</groupId>
                 <artifactId>bankzy-dependencies</artifactId>
-                <version>1.0.1-SNAPSHOT</version>
+                <version>${bankzy-dependencies.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
