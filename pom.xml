@@ -28,6 +28,11 @@
         <spotbugs.version>4.10.4.1</spotbugs.version>
         <spotbugs.core.version>4.10.4</spotbugs.core.version>
         <bankzy-dependencies.version>1.0.1-SNAPSHOT</bankzy-dependencies.version>
+        <!-- Versions for plugins Spring Boot doesn't manage. Plugins without a <version> below get Spring Boot's. -->
+        <findsecbugs-plugin.version>1.14.0</findsecbugs-plugin.version>
+        <maven-site-plugin.version>4.0.0-M16</maven-site-plugin.version>
+        <flatten-maven-plugin.version>1.7.3</flatten-maven-plugin.version>
+        <maven-release-plugin.version>3.1.1</maven-release-plugin.version>
         <revision>1.0.4-SNAPSHOT</revision>
         <skip.unit.tests>false</skip.unit.tests>
         <skip.integration.tests>false</skip.integration.tests>
@@ -69,7 +74,6 @@
                 <!-- Clean -->
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
-                    <version>3.5.0</version>
                     <executions>
                         <execution>
                             <id>auto-clean</id>
@@ -85,7 +89,6 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.14.0</version>
                     <configuration>
                         <!-- Versions without an explicit <version> come from dependencyManagement (bankzy BOM) -->
                         <annotationProcessorPathsUseDepMgmt>true</annotationProcessorPathsUseDepMgmt>
@@ -113,7 +116,6 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.5.4</version>
                     <configuration>
                         <!--suppress UnresolvedMavenProperty -->
                         <argLine>${surefireArgLine}</argLine>
@@ -127,7 +129,6 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>3.5.4</version>
                     <configuration>
                         <argLine>${failsafeArgLine}</argLine>
                         <skipTests>${skip.integration.tests}</skipTests>
@@ -219,7 +220,7 @@
                             <plugin>
                                 <groupId>com.h3xstream.findsecbugs</groupId>
                                 <artifactId>findsecbugs-plugin</artifactId>
-                                <version>1.14.0</version>
+                                <version>${findsecbugs-plugin.version}</version>
                             </plugin>
                         </plugins>
                     </configuration>
@@ -239,14 +240,14 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-site-plugin</artifactId>
-                    <version>4.0.0-M16</version>
+                    <version>${maven-site-plugin.version}</version>
                 </plugin>
 
                 <!-- Maven flatten Plugin -->
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>flatten-maven-plugin</artifactId>
-                    <version>1.7.3</version>
+                    <version>${flatten-maven-plugin.version}</version>
                     <configuration>
                         <updatePomFile>true</updatePomFile>
                         <flattenMode>resolveCiFriendliesOnly</flattenMode>
@@ -285,7 +286,6 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-enforcer-plugin</artifactId>
-                    <version>3.6.2</version> <!-- Use the latest version -->
                     <executions>
                         <execution>
                             <id>enforce</id>
@@ -315,7 +315,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-release-plugin</artifactId>
-                    <version>3.1.1</version>
+                    <version>${maven-release-plugin.version}</version>
                     <configuration>
 
                         <!-- Versioning -->
