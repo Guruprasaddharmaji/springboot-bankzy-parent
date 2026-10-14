@@ -73,5 +73,7 @@ CircleCI pipeline (`.circleci/config.yml`) builds on the `main` branch only, usi
 
 When modifying plugin versions or adding dependencies:
 - Put version numbers in `<properties>` and reference them — don't hardcode versions in `<dependencyManagement>` or `<pluginManagement>`.
+- Omit `<version>` for plugins `spring-boot-starter-parent` already manages (clean, compiler, surefire, failsafe, enforcer, install, deploy) so they move with Spring Boot upgrades. To pin one temporarily, set Spring Boot's property (e.g. `maven-compiler-plugin.version`).
+- The `lombok.version`, `jacoco.version` and `spotbugs*.version` properties deliberately override Spring Boot for Java 27 support. Remove them once Spring Boot's defaults support Java 27.
 - New plugins go in `<pluginManagement>` for configuration, then must be activated in the `<plugins>` section below it.
 - The enforcer plugin requires no duplicate dependency versions and minimum Java 27 / Maven 3.9.12.
