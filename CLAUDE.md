@@ -67,6 +67,7 @@ CircleCI pipeline (`.circleci/config.yml`) builds on the `main` branch only, usi
 | `skip.unit.tests` | `false` | Skip unit tests |
 | `skip.integration.tests` | `false` | Skip integration tests |
 | `java.version` | `27` | Java compiler target |
+| `bankzy-dependencies.version` | `1.0.1-SNAPSHOT` | Version of the imported `bankzy-dependencies` BOM |
 
 ## Editing This POM
 
